@@ -1,4 +1,4 @@
-package com.springboot.graphql.api.springbootgraphqlapi.service.fetcher;
+package com.springboot.graphql.api.springbootgraphqlapi.graphql.fetcher;
 
 import com.springboot.graphql.api.springbootgraphqlapi.model.Movie;
 import com.springboot.graphql.api.springbootgraphqlapi.repository.MovieRepository;
@@ -13,12 +13,13 @@ import java.util.List;
  * Created by fer on 13/11/19.
  */
 @Component
-public class AllMoviesDataFetcher implements DataFetcher<List<Movie>> {
+public class MovieDataFetcher implements DataFetcher<Movie> {
     @Autowired
     private MovieRepository movieRepository;
 
     @Override
-    public List<Movie> get(DataFetchingEnvironment dataFetchingEnvironment) {
-        return movieRepository.findAll();
+    public Movie get(DataFetchingEnvironment dataFetchingEnvironment) {
+        String id = dataFetchingEnvironment.getArgument("id");
+        return movieRepository.findById(id).orElse(null);
     }
 }

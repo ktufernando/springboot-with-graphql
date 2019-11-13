@@ -1,7 +1,7 @@
 package com.springboot.graphql.api.springbootgraphqlapi.controller;
 
-import com.springboot.graphql.api.springbootgraphqlapi.service.GraphQLService;
 import graphql.ExecutionResult;
+import graphql.GraphQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +23,12 @@ public class MovieController {
     private static Logger logger = LoggerFactory.getLogger(MovieController.class);
 
     @Autowired
-    private GraphQLService graphQLService;
+    private GraphQL graphQL;
 
     @PostMapping
     public ResponseEntity<Object> getAllBooks(@RequestBody String query){
         logger.info("Entering getAllMovies@MovieController");
-        ExecutionResult execute = graphQLService.getGraphQL().execute(query);
+        ExecutionResult execute = graphQL.execute(query);
         return new ResponseEntity<>(execute, HttpStatus.OK);
     }
 
