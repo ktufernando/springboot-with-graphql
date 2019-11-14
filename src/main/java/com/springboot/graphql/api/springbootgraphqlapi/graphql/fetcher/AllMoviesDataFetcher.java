@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Component
 public class AllMoviesDataFetcher implements DataFetcher<List<Movie>> {
+
     @Autowired
     private MovieRepository movieRepository;
 

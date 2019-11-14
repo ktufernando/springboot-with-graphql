@@ -26,19 +26,14 @@ import java.util.stream.Stream;
  */
 @Component
 public class GraphQLProvider {
-
     @Autowired
     private MovieRepository movieRepository;
-
     @Autowired
     private AllMoviesDataFetcher allMoviesDataFetcher;
-
     @Autowired
     private MovieDataFetcher movieDataFetcher;
-
     @Value("classpath:schema.graphql")
     private Resource resource;
-
     private GraphQL graphQL;
 
     @PostConstruct
@@ -60,10 +55,14 @@ public class GraphQLProvider {
     }
 
     private void loadDataIntoHSQL() {
-        Stream.of(
-                Movie.builder().id("1001").title("Guason").actors(new String[]{"Joaquin Phoenix", "Robert De Niro"}).directors(new String[]{"Todd Phillips"}).releaseDate("3 de octubre de 2019").build(),
-                Movie.builder().id("1002").title("Avengers: Endgame").actors(new String[]{"Robert Downey Jr.", "Scarlett Johansson", "Chris Evans"}).directors(new String[]{"Anthony Russo", "Joe Russo"}).releaseDate("22 de abril de 2019").build()
-
+        Stream.of(Movie.builder().id("1001").title("Guason")
+                        .actors(new String[]{"Joaquin Phoenix", "Robert De Niro"})
+                        .directors(new String[]{"Todd Phillips"}).releaseDate("3 de octubre de 2019")
+                        .build(),
+                Movie.builder().id("1002").title("Avengers: Endgame")
+                        .actors(new String[]{"Robert Downey Jr.", "Scarlett Johansson", "Chris Evans"})
+                        .directors(new String[]{"Anthony Russo", "Joe Russo"}).releaseDate("22 de abril de 2019")
+                        .build()
         ).forEach(movie -> movieRepository.save(movie));
     }
 
