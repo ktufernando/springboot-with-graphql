@@ -10,7 +10,7 @@ Posiblemente escuchaste sobre GraphQL y cómo Facebook usa GraphQL en sus aplica
 
 Si no sabes sobre GraphQL, entonces estás leyendo el artículo correcto. GraphQL es un lenguaje de consulta en tu API. Por más que query te haga pensar en una base de datos, GraphQL no está vinculado a ninguna base de datos o motor de almacenamiento específico. En cambio, GraphQL se apoya en tu código y datos existentes.
 
-![GraphQL](./2.png "GraphQL")
+![GraphQL](https://ktufernando.github.io/static/173fc34db269b66fd2ec671cb6d48557/ec5a1/2.webp "GraphQL")
 
 No entendí nada, explícame de nuevo Fernando.
 
@@ -39,13 +39,13 @@ Comencemos a desarrollar nuestra aplicación Spring Boot con GraphQL. Estoy usan
 
 Visitá [Spring Initializr](https://start.spring.io/) para generar una aplicación Spring Boot. Podes dejar las configuraciones principales por defecto. Proyecto maven, Spring Boot 2.2.1 y JDK 8. En el sector de dependencias vas a seleccionar: Spring Web, Spring Data JPA e HyperSQL Database.
 
-![Spring Initializr](./3.jpg "Spring Initializr")
+![Spring Initializr](https://ktufernando.github.io/static/dc49f8301007ca438c867a43c217ebda/f7db4/3.webp "Spring Initializr")
 
-![Spring Initializr](./4.jpg "Spring Initializr")
+![Spring Initializr](https://ktufernando.github.io/static/5be863d3314e0a9d47d6cbb8d2e2df57/9d000/4.webp "Spring Initializr")
 
 Luego de descargar el zip, descomprimir e importar en nuestro IDE favorito, veamos el pom.xml. Las dependencias que necesitamos en nuestro pom son:
 
-![pom.xml](./5.jpg "pom.xml")
+![pom.xml](https://ktufernando.github.io/static/dc388234b3f1ff70603b3d15b7834a69/4be27/5.webp "pom.xml")
 
 > Nota: En esta imagen hay tres dependencias que tenemos que agregar después de descomprimir el zip de Spring Initializr.
 
@@ -57,19 +57,19 @@ Luego de descargar el zip, descomprimir e importar en nuestro IDE favorito, veam
 
 A continuación, agregaremos una clase de modelo para representar una película. La llamaremos Movie. El código de la clase de modelo es este.
 
-![modelo](./6.jpg "modelo")
+![modelo](https://ktufernando.github.io/static/0e6a9fd4eca2560e0de9c16e1cae669d/34c4f/6.webp "modelo")
 
 ### Tarea 2: Repositorio de películas
 
 El repositorio de este ejemplo extiende de JpaRepository.
 
-![repositorio](./7.jpg "repositorio")
+![repositorio](https://ktufernando.github.io/static/269f5b5b97118fd30ebfc46f22282537/fb3a1/7.webp "repositorio")
 
 ### Tarea 3: Agregar un esquema GraphQL
 
 A continuación, escribiremos un esquema GraphQL, llamado schema.graphql en nuestra carpeta de resources.
 
-![schema](./8.jpg "schema")
+![schema](https://ktufernando.github.io/static/91d3b4922333bd410a6848c36e46e1be/f0453/8.webp "schema")
 
 Este es un archivo muy importante y es la columna vertebral de GraphQL. Acá, definimos un esquema, que se relaciona con una query. También necesitamos indicar el tipo de query que usarán las aplicaciones front-end que consumirán nuestra api.
 
@@ -86,17 +86,17 @@ Necesitamos escribir dos clases de recopilación de datos, una para el tipo “a
 
 La clase de recopilación de datos para el tipo allBooks es la siguiente.
 
-![allMoviesFletcher](./9.jpg "allMoviesFletcher")
+![allMoviesFletcher](https://ktufernando.github.io/static/d0dbea66b1b72677822e356db88b2897/474ca/9.webp "allMoviesFletcher")
 
 La clase de recopilación de datos para el tipo de movie es la siguiente.
 
-![movieFletcher](./10.jpg "movieFletcher")
+![movieFletcher](https://ktufernando.github.io/static/397ba6522da9fe8a11c0296b515530a5/388a9/10.webp "movieFletcher")
 
 ### Tarea 5: Proveedor de servicio GraphQL
 
 Ahora, necesitamos agregar un servicio GraphQL. Vamos a nombrarlo como GraphQLProvider.
 
-![graphQLProvider](./11.jpg "graphQLProvider")
+![graphQLProvider](https://ktufernando.github.io/static/8b6043bdabce621ab66b59ef68f815f1/d873f/11.webp "graphQLProvider")
 
 Cuando se ejecuta la aplicación Spring Boot, Spring Framework llama al método @PostConstruct. El código dentro del método @PostConstruct hará tres cosas:
 
@@ -108,7 +108,7 @@ Cuando se ejecuta la aplicación Spring Boot, Spring Framework llama al método 
 
 Vamos a crear la clase MovieController y agreguemos un controlador de request POST, como este.
 
-![controller](./12.jpg "controller")
+![controller](https://ktufernando.github.io/static/424ab6eb212f6f0ffa6cd01d403ea014/aa8ca/12.webp "controller")
 
 Ahora si! A ejecutar la aplicación.
 
@@ -141,7 +141,7 @@ Body del request:
         }
     }
 
-![postman](./13.jpg "postman")
+![postman](https://ktufernando.github.io/static/530050f07402f34c675a54cd348c6c01/ba935/13.webp "postman")
 
 *Response 1:* la respuesta para ambas consultas es esta.
 
